@@ -17,7 +17,7 @@ green.addEventListener("click", function() {
   this.classList.toggle("buttonOff");
 
   //display green Tea
-  //get   
+  //get
 
   //timer
 
@@ -31,3 +31,5 @@ white.addEventListener("click", function() {
 black.addEventListener("click", function() {
   console.log(black);
 });
+
+//testing
