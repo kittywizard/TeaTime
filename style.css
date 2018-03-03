@@ -80,3 +80,5 @@ hr.style-one {
     background: rgb(58, 193, 0);
     background-image: linear-gradient(to right, #05500c, #78fb68, #05500c);
 }
+
+#submitButton {}

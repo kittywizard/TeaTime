@@ -2,6 +2,8 @@
 // So you don't oversteep your tea at work
 
 var green, white, black;
+var timeDiv = document.getElementById('timeDiv');
+var input2MS, timer;
 
 green = document.getElementById('green');
 white = document.getElementById('white');
@@ -18,18 +20,21 @@ green.addEventListener("click", function() {
   //display green Tea info
   var greenDiv = document.createElement('div');
   greenDiv.innerHTML =
-    "<span class='subHeadline'>Green Tea</span>\
+            "<span class='subHeadline'>Green Tea</span>\
             <p>Water Temperature: 160&deg; to 180&deg;</p>\
-            <img src='http://placekitten.com/g/300/300' width='300px' height='300px'>";
+            <img src='http://placekitten.com/g/300/300' width='300px' height='300px'>\
+            <form>\
+              <label for='timeToConvert'>Enter Minutes:</label>\
+              <input id='timeToConvert' type=number' /></input>\
+              <button id='submitButton' type='button'>Submit</button>\
+            </form>\
+            <button type='button' id='pleasestop'>STOP</button>\
+            ";
             //put backslashes on the innerHTML multiple lines
 
   //this will add all that innerHTML stuff to the div....
   document.getElementById('greenTea').appendChild(greenDiv);
 
-  //timer
-  //WRITE A FUNCTION NOOB BUG
-
-  //reset?
 });
 
 white.addEventListener("click", function() {
@@ -38,6 +43,22 @@ white.addEventListener("click", function() {
 
 black.addEventListener("click", function() {
   console.log(black);
+});
+
+submitButton.addEventListener("click", function() {
+  //don't enter zero
+  if (document.getElementById('timeToConvert').value == 0) {
+    alert("YOU ARE DUMB");
+  }
+  else {
+    input2MS =  (document.getElementById('timeToConvert').value * 60) * 1000;
+    timer =  setInterval(function() {
+      console.log(input2MS -= 1);
+      //display this on screen
+    timeDiv.innerHTML = input2MS;
+    }, 1000); //every  second
+  }
+
 });
 
 //function to hide everything -- works on all buttons!
